@@ -7,6 +7,7 @@ import Country from "./pages/Country";
 import Contact from "./pages/Contact";
 import AppLayout from "./components/Layout/AppLayout";
 import NotFound from "./pages/NotFound";
+import CountryDetails from "./components/Layout/CountryDetails";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/country" element={<Country />} />
+           <Route path="/country/:id" element={<CountryDetails />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
 
