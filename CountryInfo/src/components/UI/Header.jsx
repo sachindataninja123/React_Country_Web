@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Header = () => {
+  const [mobileView, setMobileView] = useState(false);
+
+  const handleButtonToggle = () => {
+    return setMobileView(!mobileView);
+  };
+
   return (
     <header>
       <div className="container">
@@ -12,7 +19,7 @@ const Header = () => {
             </NavLink>
           </div>
 
-          <nav>
+          <nav className={mobileView ? "menu-mobile" : "menu-web"}>
             <ul className="flex text-white">
               <li className="text-white text-2xl">
                 <NavLink to="/">Home</NavLink>
@@ -28,6 +35,12 @@ const Header = () => {
               </li>
             </ul>
           </nav>
+
+          <div className="ham-menu">
+            <button onClick={handleButtonToggle}>
+              <RxHamburgerMenu />
+            </button>
+          </div>
         </div>
       </div>
     </header>
